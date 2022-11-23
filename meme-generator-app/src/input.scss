@@ -1,0 +1,65 @@
+* {
+    font-family: 'Mukta', sans-serif;
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    padding: 15px 25px;
+    background-image: linear-gradient(to right, #672280,#A626D3);
+    color: white;
+
+    img {
+        max-width: 50px;
+        margin-right: 8px;
+    }
+
+    p {
+        margin-left: auto;
+        align-self: center;
+    }
+}
+.forms {
+    margin-top: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    input {
+        border: solid 1px #777;
+        padding: 3px 7px;
+        margin: 0 10px;
+        border-radius: 5px;
+        min-width: 350px;
+        min-height: 30px;
+        font-size: 20px;
+    }
+    
+    .input--forms {
+        margin-bottom: 20px;
+    }
+
+    .get--img {
+        font-size: 16px;
+        min-height: 35px;
+        min-width: 400px;
+        border-radius: 5px;
+        border: none;
+        background-image: linear-gradient(to right,#672280,#A626D3);
+        color: white;
+        transition: 0.2s;
+
+        &:hover {
+            transition: 0.4s;
+            opacity: 0.7;
+        }
+        &:active {
+            opacity: 0.5;
+            transition: 0.2s;
+        }
+    }
+    .meme--img {
+        max-width: 100%;
+    }
+}
