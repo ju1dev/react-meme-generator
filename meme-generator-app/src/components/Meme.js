@@ -4,8 +4,8 @@ export default function Meme() {
 
     const [img, setImg] = React.useState('https://i.imgflip.com/30b1gx.jpg')
     const [meme, setMeme] = React.useState({
-        topText: 'Top Text',
-        bottomText: 'Bottom text',
+        topText: '',
+        bottomText: '',
         randomImage: 'https://i.imgflip.com/30b1gx.jpg'
     })
     const [allMemesImg, setAllImg] = React.useState(memesData)
@@ -20,15 +20,36 @@ export default function Meme() {
         console.log(img)
         return <img src={img}></img>
     }
+    function handleChange(event) {
+        const {name, value} = event.target
+        setMeme(prevMeme => ({
+            ...prevMeme,
+            [name] : value
+        }))
+    }
     return (
         <div className="forms">
             <div className="input--forms">
-                <input></input>
-                <input></input>
+                <input
+                type='text'
+                name='topText'
+                value={meme.topText}
+                onChange={handleChange}
+                />
+                <input
+                type='text'
+                name='bottomText'
+                value={meme.bottomText}
+                onChange={handleChange}
+                />
             </div>
 
             <button onClick={changeImg} className="get--img">Get a new image 🖼</button>
-            <img src={meme.randomImage} className='meme--img'></img>
+            <div className='meme'>
+                <img src={meme.randomImage} className='meme--img'></img>
+                <h2 className='meme--text top'>{meme.topText}</h2>
+                <h2 className='meme--text bottom'>{meme.bottomText}</h2>
+            </div>
         </div>
         
     )
