@@ -11,9 +11,12 @@ export default function Meme() {
     const [allMemes, setAllMemes] = React.useState([])
 
     React.useEffect(() => {
-        fetch("https://api.imgflip.com/get_memes")
-        .then(res => res.json())
-        .then(data => setAllMemes(data.data.memes))
+        async function getMemes() {
+            const res = await fetch("https://api.imgflip.com/get_memes")
+            const data = await res.json()
+            setAllMemes(data.data.memes)
+        }
+        getMemes()
         console.log('effect ran')
     }, [meme.randomImage])
 
@@ -56,9 +59,10 @@ export default function Meme() {
             </div>
         
             <button onClick={changeImg} className="get--img">Get a new image 🖼</button>
-            <img src={meme.randomImage} className='meme--img'></img>
+            <div className='meme'><img src={meme.randomImage} className='meme--img'></img>
             <h2 className='meme--text top'>{meme.topText}</h2>
             <h2 className='meme--text bottom'>{meme.bottomText}</h2>
+            </div>
         </div>
         )
         }
